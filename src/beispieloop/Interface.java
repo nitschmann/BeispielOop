@@ -37,6 +37,8 @@ public class Interface extends javax.swing.JFrame {
         ausgabeFeld = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Mitarbeiter Verwaltung");
+        setResizable(false);
 
         jLabel1.setText("Nachname:");
 
@@ -68,7 +70,7 @@ public class Interface extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .add(layout.createSequentialGroup()
                         .addContainerGap()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -83,8 +85,8 @@ public class Interface extends javax.swing.JFrame {
                                     .add(vornameFeld)
                                     .add(alterFeld)))
                             .add(layout.createSequentialGroup()
-                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 379, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(0, 9, Short.MAX_VALUE)))))
+                                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 380, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -117,7 +119,16 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_alterFeldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        //Ausgabe leeren:
+        ausgabeFeld.setText("");
+        //Alter auslesen: 
+        int alter = Integer.parseInt(alterFeld.getText()); 
+        //Neuer Mitarbeiter: 
+        Employee mitarbeiter = new Employee(nachnameFeld.getText(), vornameFeld.getText(), "1", alter);
+        //Ausgabe der Mitarbeiter ID:
+        ausgabeFeld.append("Mitarbeiter-ID:" + "\n" + String.valueOf(mitarbeiter.getEmployeeId()) + "\n");
+        //Ausgabe der Details:
+        ausgabeFeld.append("Details:" + "\n" + mitarbeiter.printAll());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

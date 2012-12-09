@@ -9,25 +9,27 @@ package beispieloop;
 
 public class Employee extends Person {
     
-    //
+    //Die Mitarbeiter ID
     private String employeeId;
     
+    //Initialisierungs-Method für die Class Employee
     public Employee(String ln, String fn, String EmpId, int a) {
-        
         super(ln,fn); // Java ruft hier den Konstruktor der Oberklasse auf
-        employeeId = EmpId;
-        age = a;
+        this.employeeId = EmpId;
+        this.age = a;
         
     }
     
+    //Ausgabe des privaten Attributes Mitarbeiter ID 
     public String getEmployeeId() {
-        return employeeId;
+        return this.employeeId;
     }
     
+    //Ausgabe der gesamten Informationen des Mitarbeiter
     public String printAll() {
         return (
                 fullName() + " " +
-                employeeId + " " +
-                age);
+                this.employeeId + " " +
+                this.age);
     }
 }
